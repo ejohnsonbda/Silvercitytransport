@@ -66,8 +66,6 @@
       ev.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
-      if (form.querySelector('.honeypot') && form.querySelector('.honeypot').value) return;
-
       var btn = form.querySelector('[type="submit"]');
       var origHTML = btn.innerHTML;
       btn.disabled = true;
