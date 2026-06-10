@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
@@ -577,57 +578,96 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-function initBookingMap() {
+(function () {
   var mapEl    = document.getElementById('booking-map');
   var mapWrap  = document.getElementById('booking-map-wrap');
   var pickupIn = document.getElementById('pickup');
   var dropIn   = document.getElementById('dropoff');
   if (!mapEl || !pickupIn || !dropIn) return;
 
-  var bermuda = { lat: 32.3078, lng: -64.7505 };
-  var map = new google.maps.Map(mapEl, {
-    center: bermuda, zoom: 12,
-    mapTypeControl: false, streetViewControl: false, fullscreenControl: false,
-    styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] }]
-  });
+  var map = L.map('booking-map', { zoomControl: true }).setView([32.3078, -64.7505], 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19
+  }).addTo(map);
 
-  function pin(color) {
-    return { path: google.maps.SymbolPath.CIRCLE, scale: 11,
-             fillColor: color, fillOpacity: 1, strokeColor: '#fff', strokeWeight: 2.5 };
+  function makeIcon(color) {
+    return L.divIcon({
+      html: '<div style="width:16px;height:16px;border-radius:50%;background:' + color + ';border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.32)"></div>',
+      iconSize: [16, 16], iconAnchor: [8, 8], className: ''
+    });
   }
-  var pickupMarker  = new google.maps.Marker({ map: map, visible: false, title: 'Pickup',   icon: pin('#08A7AE') });
-  var dropoffMarker = new google.maps.Marker({ map: map, visible: false, title: 'Drop-off', icon: pin('#FF5F2E') });
 
-  function showMap() { mapWrap.classList.add('show'); }
-  function fitBounds() {
-    if (pickupMarker.getVisible() && dropoffMarker.getVisible()) {
-      var b = new google.maps.LatLngBounds();
-      b.extend(pickupMarker.getPosition()); b.extend(dropoffMarker.getPosition());
-      map.fitBounds(b, 52);
+  var pMarker = null, dMarker = null;
+
+  function showMap() {
+    mapWrap.classList.add('show');
+    setTimeout(function () { map.invalidateSize(); }, 10);
+  }
+  function fitBoth() {
+    if (pMarker && dMarker) {
+      map.fitBounds([pMarker.getLatLng(), dMarker.getLatLng()], { padding: [40, 40] });
     }
   }
 
-  var opts = { componentRestrictions: { country: 'bm' } };
-  var pickupAuto  = new google.maps.places.Autocomplete(pickupIn,  opts);
-  var dropoffAuto = new google.maps.places.Autocomplete(dropIn, opts);
+  function makeList(input) {
+    var ul = document.createElement('ul');
+    ul.className = 'map-suggest'; ul.hidden = true;
+    input.parentNode.style.position = 'relative';
+    input.parentNode.appendChild(ul);
+    return ul;
+  }
 
-  pickupAuto.addListener('place_changed', function () {
-    var p = pickupAuto.getPlace();
-    if (!p.geometry) return;
-    pickupMarker.setPosition(p.geometry.location); pickupMarker.setVisible(true);
-    showMap(); fitBounds();
-    if (!dropoffMarker.getVisible()) map.panTo(p.geometry.location);
+  function attachSuggest(input, list, onPick) {
+    var timer;
+    input.addEventListener('input', function () {
+      clearTimeout(timer);
+      var q = input.value.trim();
+      if (q.length < 3) { list.innerHTML = ''; list.hidden = true; return; }
+      timer = setTimeout(function () {
+        fetch('https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(q) +
+              '&countrycodes=bm&format=json&limit=5', { headers: { 'Accept-Language': 'en' } })
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            list.innerHTML = '';
+            if (!data.length) { list.hidden = true; return; }
+            data.forEach(function (item) {
+              var li = document.createElement('li');
+              li.textContent = item.display_name;
+              li.addEventListener('mousedown', function (e) {
+                e.preventDefault();
+                input.value = item.display_name;
+                list.innerHTML = ''; list.hidden = true;
+                onPick(parseFloat(item.lat), parseFloat(item.lon));
+              });
+              list.appendChild(li);
+            });
+            list.hidden = false;
+          })
+          .catch(function () { list.hidden = true; });
+      }, 350);
+    });
+    input.addEventListener('blur', function () {
+      setTimeout(function () { list.innerHTML = ''; list.hidden = true; }, 200);
+    });
+  }
+
+  attachSuggest(pickupIn, makeList(pickupIn), function (lat, lon) {
+    if (pMarker) map.removeLayer(pMarker);
+    pMarker = L.marker([lat, lon], { icon: makeIcon('#08A7AE') }).addTo(map).bindPopup('<strong>Pickup</strong>');
+    showMap(); fitBoth();
+    if (!dMarker) map.setView([lat, lon], 14);
   });
-  dropoffAuto.addListener('place_changed', function () {
-    var p = dropoffAuto.getPlace();
-    if (!p.geometry) return;
-    dropoffMarker.setPosition(p.geometry.location); dropoffMarker.setVisible(true);
-    showMap(); fitBounds();
-    if (!pickupMarker.getVisible()) map.panTo(p.geometry.location);
+
+  attachSuggest(dropIn, makeList(dropIn), function (lat, lon) {
+    if (dMarker) map.removeLayer(dMarker);
+    dMarker = L.marker([lat, lon], { icon: makeIcon('#FF5F2E') }).addTo(map).bindPopup('<strong>Drop-off</strong>');
+    showMap(); fitBoth();
+    if (!pMarker) map.setView([lat, lon], 14);
   });
-}
+})();
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initBookingMap" async defer></script>
 </body>
 </html>

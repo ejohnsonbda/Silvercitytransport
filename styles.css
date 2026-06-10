@@ -335,6 +335,13 @@ section { position: relative; }
 .booking-map-legend span::before { content: ''; display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1.5px currentColor; }
 .bml-pickup::before  { background: #08A7AE; color: #08A7AE; }
 .bml-dropoff::before { background: #FF5F2E; color: #FF5F2E; }
+
+/* ---------- Address autocomplete dropdown ---------- */
+.map-suggest { position: absolute; top: 100%; left: 0; right: 0; z-index: 500; background: #fff; border: 1.5px solid #d4dade; border-top: none; border-radius: 0 0 var(--r-sm) var(--r-sm); margin: 0; padding: 0; list-style: none; box-shadow: 0 8px 24px -8px rgba(16,21,23,.18); max-height: 210px; overflow-y: auto; }
+.map-suggest li { padding: 11px 14px; font-size: 13px; cursor: pointer; border-bottom: 1px solid #f2f4f5; line-height: 1.45; color: var(--charcoal); }
+.map-suggest li:last-child { border-bottom: none; }
+.map-suggest li:hover, .map-suggest li:focus { background: var(--sky-soft); color: var(--teal-deep); }
+.map-suggest[hidden] { display: none; }
 .form-success { display: none; text-align: center; padding: 30px 10px; }
 .form-success.show { display: block; }
 .form-success .check { width: 64px; height: 64px; border-radius: 50%; background: var(--sky); color: var(--teal-dk); display: grid; place-items: center; margin: 0 auto 18px; }
