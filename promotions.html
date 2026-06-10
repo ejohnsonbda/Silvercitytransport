@@ -225,6 +225,7 @@
 
     <form class="form reveal d1" id="bookingForm" novalidate>
       <input type="hidden" name="_subject" value="New Specials Booking — Silver City Transport" />
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
       <div id="formFields">
         <h3>Booking &amp; Quote Request</h3>
         <p class="form-sub" id="promoSub">We'll get back to you to confirm date, time and pricing.</p>
@@ -379,7 +380,15 @@
         }
       }
       if (notes && note) { notes.value = note; }
-      if (sub) { sub.innerHTML = 'You selected: <strong style="color:var(--teal-dk)">' + svc + '</strong>. Add your trip details and we\u2019ll lock in the rate.'; }
+      if (sub) {
+        sub.textContent = '';
+        var t1 = document.createTextNode('You selected: ');
+        var strong = document.createElement('strong');
+        strong.style.color = 'var(--teal-dk)';
+        strong.textContent = svc;
+        var t2 = document.createTextNode('. Add your trip details and we\u2019ll lock in the rate.');
+        sub.appendChild(t1); sub.appendChild(strong); sub.appendChild(t2);
+      }
     });
   });
 })();
