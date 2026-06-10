@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Silver City Transport — Tri-Fold Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --teal:#08A7AE; --teal-dk:#067e84; --teal-deep:#064b4f;
+  --coral:#FF5F2E; --coral-dk:#e84a1b; --silver:#9B9B9B;
+  --ink:#101517; --black:#000; --charcoal:#333; --white:#fff;
+  --sky:#DCECF7; --sky-soft:#eef6fc; --paper:#f6f8f9;
+  --font-display:'Sora',system-ui,sans-serif;
+  --font-body:'Manrope',system-ui,sans-serif;
+  --font-serif:'Cinzel',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{background:#2a2f31;font-family:var(--font-body);color:var(--charcoal);-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.05;color:var(--ink);}
+
+/* ---------- Screen staging ---------- */
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;padding:12px 22px;background:rgba(16,21,23,.94);backdrop-filter:blur(10px);color:#fff;}
+.toolbar .t-brand{font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:.02em;display:flex;align-items:center;gap:10px;}
+.toolbar .t-brand i{width:9px;height:9px;border-radius:50%;background:var(--teal);display:inline-block;}
+.toolbar .t-actions{display:flex;align-items:center;gap:10px;}
+.toolbar .hint{font-size:12px;color:rgba(255,255,255,.55);}
+.print-btn{font-family:var(--font-display);font-weight:600;font-size:13px;color:#fff;background:var(--coral);
+  border:none;border-radius:999px;padding:10px 20px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;}
+.print-btn svg{width:15px;height:15px;}
+.print-btn:hover{background:var(--coral-dk);}
+
+.stage{padding:78px 20px 60px;display:flex;flex-direction:column;align-items:center;gap:42px;}
+.sheet-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.sheet-label{font-family:var(--font-display);font-weight:600;font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);}
+.sheet-label b{color:var(--teal);}
+
+/* ---------- The print sheet (US Letter landscape) ---------- */
+.sheet{
+  width:11in;height:8.5in;background:#fff;display:grid;grid-template-columns:1fr 1fr 1fr;
+  box-shadow:0 30px 80px -30px rgba(0,0,0,.7);overflow:hidden;position:relative;
+}
+.panel{position:relative;overflow:hidden;display:flex;flex-direction:column;}
+.panel + .panel{border-left:1px dashed rgba(0,0,0,.14);}
+.sheet.dark .panel + .panel{border-left:1px dashed rgba(255,255,255,.16);}
+
+/* Shared bits */
+.eyebrow{font-family:var(--font-display);font-weight:700;font-size:8pt;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-dk);display:inline-flex;align-items:center;gap:7px;}
+.eyebrow::before{content:"";width:18px;height:2px;background:var(--coral);display:inline-block;}
+.eyebrow.lite{color:var(--teal);}
+.lanes{position:absolute;inset:0;pointer-events:none;}
+
+/* ======= OUTSIDE SHEET (dark) ======= */
+.sheet.dark{background:var(--black);}
+.p-dark{background:var(--black);color:#fff;padding:.46in .42in;}
+.p-dark h1,.p-dark h2,.p-dark h3{color:#fff;}
+
+/* Front cover */
+.cover{justify-content:space-between;}
+.cover::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(420px 280px at 80% 4%,rgba(8,167,174,.28),transparent 60%),
+  radial-gradient(360px 240px at 0% 104%,rgba(255,95,46,.20),transparent 60%);}
+.cover-top{position:relative;}
+.cover-logo{height:.62in;width:auto;border-radius:6px;margin-bottom:.3in;}
+.cover h1{font-size:25pt;line-height:1.02;letter-spacing:-.03em;}
+.cover h1 .teal{color:var(--teal);}
+.cover h1 .coral{color:var(--coral);}
+.cover .sub{color:rgba(255,255,255,.72);font-size:9.5pt;line-height:1.5;margin-top:.16in;max-width:2.7in;}
+.cover-photo{position:relative;border-radius:14px;overflow:hidden;height:2.35in;margin:.2in 0;border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 40px -20px rgba(0,0,0,.8);}
+.cover-photo img{width:100%;height:100%;object-fit:cover;}
+.cover-photo .rate{position:absolute;right:.14in;top:.14in;background:var(--coral);color:#fff;border-radius:9px;padding:.1in .16in;text-align:center;}
+.cover-photo .rate b{font-family:var(--font-display);font-weight:800;font-size:14pt;display:block;line-height:1;}
+.cover-photo .rate span{font-size:6pt;letter-spacing:.08em;opacity:.92;}
+.cover-foot{position:relative;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.14);padding-top:.16in;}
+.cover-foot .ph{font-family:var(--font-display);font-weight:700;font-size:12pt;color:#fff;display:flex;align-items:center;gap:8px;}
+.cover-foot .ph svg{width:15px;height:15px;color:var(--teal);}
+.badge247{display:inline-flex;align-items:center;gap:6px;background:rgba(8,167,174,.16);border:1px solid rgba(8,167,174,.5);color:#bff0f2;border-radius:999px;padding:5px 11px;font-family:var(--font-display);font-weight:600;font-size:7.5pt;letter-spacing:.04em;}
+
+/* Back cover */
+.back{justify-content:space-between;}
+.back-logo{height:.66in;width:auto;border-radius:6px;margin-bottom:.26in;}
+.back h2{font-size:18pt;letter-spacing:-.02em;}
+.back .lede{color:rgba(255,255,255,.68);font-size:9pt;line-height:1.5;margin-top:.1in;}
+.contact-list{display:flex;flex-direction:column;gap:.13in;margin-top:.26in;}
+.contact-list .row{display:flex;gap:.12in;align-items:flex-start;}
+.contact-list .ic{width:.34in;height:.34in;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;color:var(--teal);flex-shrink:0;}
+.contact-list .ic svg{width:15px;height:15px;}
+.contact-list b{font-family:var(--font-display);font-weight:600;font-size:9.5pt;color:#fff;display:block;line-height:1.25;}
+.contact-list span{font-size:7.5pt;color:rgba(255,255,255,.5);letter-spacing:.02em;}
+.back-foot{border-top:1px solid rgba(255,255,255,.14);padding-top:.16in;}
+.back-foot .tag{font-family:var(--font-serif);font-weight:600;font-size:9.5pt;color:var(--teal);letter-spacing:.02em;}
+.back-foot .cr{font-size:7pt;color:rgba(255,255,255,.4);margin-top:6px;}
+.socials{display:flex;gap:8px;margin-top:.16in;}
+.socials .s{display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-weight:600;font-size:7.5pt;color:rgba(255,255,255,.8);}
+.socials .s svg{width:13px;height:13px;color:var(--teal);}
+
+/* Fold-in flap (light) */
+.flap{background:var(--sky-soft);padding:.46in .4in;justify-content:space-between;}
+.flap .lanes path{opacity:.5;}
+.flap h2{font-size:19pt;margin-top:.12in;letter-spacing:-.025em;}
+.flap h2 .coral{color:var(--coral);}
+.flap p{font-size:9pt;line-height:1.55;color:#4a5256;margin-top:.13in;}
+.flap .promise{font-family:var(--font-display);font-weight:700;color:var(--ink);font-size:10pt;margin-top:.16in;padding-left:.12in;border-left:3px solid var(--coral);}
+.serve-title{font-family:var(--font-display);font-weight:700;font-size:8.5pt;letter-spacing:.04em;color:var(--teal-deep);margin:.22in 0 .1in;text-transform:uppercase;}
+.chips{display:flex;flex-wrap:wrap;gap:6px;}
+.chips span{background:#fff;border:1px solid var(--sky);color:var(--teal-deep);font-family:var(--font-display);font-weight:600;font-size:7.5pt;padding:5px 10px;border-radius:999px;}
+.flap-cta{display:flex;align-items:center;gap:8px;font-family:var(--font-display);font-weight:700;font-size:9pt;color:var(--coral-dk);margin-top:.2in;border-top:1px dashed #c9dced;padding-top:.16in;}
+.flap-cta svg{width:16px;height:16px;}
+
+/* ======= INSIDE SHEET (light) ======= */
+.p-light{background:#fff;padding:.42in .38in;}
+.p-light.tint{background:var(--sky-soft);}
+.accent-bar{height:4px;width:100%;background:linear-gradient(90deg,var(--teal),var(--coral));position:absolute;top:0;left:0;}
+.panel-title{font-size:15pt;letter-spacing:-.02em;margin-top:.04in;}
+.panel-intro{font-size:8pt;color:var(--silver);line-height:1.45;margin-top:.06in;}
+
+/* Services list */
+.svc{display:flex;flex-direction:column;gap:.085in;margin-top:.2in;}
+.svc .item{display:flex;gap:.13in;align-items:flex-start;}
+.svc .ic{width:.36in;height:.36in;border-radius:8px;background:var(--sky);color:var(--teal-dk);display:grid;place-items:center;flex-shrink:0;}
+.svc .ic svg{width:17px;height:17px;}
+.svc .tx b{font-family:var(--font-display);font-weight:700;font-size:9.5pt;color:var(--ink);display:block;line-height:1.2;}
+.svc .tx span{font-size:7.5pt;color:#6a7176;line-height:1.35;display:block;margin-top:1px;}
+
+/* Packages + pricing */
+.pkgs{display:flex;flex-direction:column;gap:.1in;margin-top:.2in;}
+.pkg{background:#fff;border:1px solid #e6eef4;border-radius:9px;padding:.13in .15in;display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.pkg.feat{background:var(--ink);border-color:var(--ink);}
+.pkg .nm{font-family:var(--font-display);font-weight:700;font-size:9pt;color:var(--ink);}
+.pkg .ds{font-size:7pt;color:var(--silver);margin-top:1px;}
+.pkg.feat .nm{color:#fff;}.pkg.feat .ds{color:rgba(255,255,255,.6);}
+.pkg .tagm{font-family:var(--font-display);font-weight:700;font-size:6.5pt;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);white-space:nowrap;}
+.pkg.feat .tagm{color:#ffb59a;}
+.pricing{margin-top:.2in;background:linear-gradient(160deg,rgba(8,167,174,.1),rgba(255,95,46,.06));border:1px solid var(--sky);border-radius:12px;padding:.18in;}
+.pricing .big{display:flex;align-items:baseline;gap:6px;}
+.pricing .big b{font-family:var(--font-display);font-weight:800;font-size:24pt;color:var(--ink);line-height:1;}
+.pricing .big span{font-family:var(--font-display);font-weight:700;font-size:10pt;color:var(--teal-dk);}
+.pricing .terms{display:flex;flex-direction:column;gap:5px;margin-top:.12in;}
+.pricing .terms div{display:flex;gap:8px;font-size:8pt;color:#4a5256;align-items:center;}
+.pricing .terms svg{width:13px;height:13px;color:var(--teal);flex-shrink:0;}
+
+/* Fleet + why + cta */
+.fleet-img{border-radius:11px;overflow:hidden;height:1.55in;margin-top:.18in;position:relative;box-shadow:0 14px 28px -16px rgba(0,0,0,.4);}
+.fleet-img img{width:100%;height:100%;object-fit:cover;}
+.fleet-img .cap{position:absolute;left:0;right:0;bottom:0;padding:.12in;background:linear-gradient(to top,rgba(0,0,0,.8),transparent);color:#fff;font-family:var(--font-display);font-weight:700;font-size:8.5pt;}
+.specs{display:flex;gap:6px;margin-top:.12in;}
+.specs .sp{flex:1;background:var(--sky-soft);border-radius:8px;padding:.1in;text-align:center;}
+.specs .sp b{font-family:var(--font-display);font-weight:800;font-size:11pt;color:var(--ink);display:block;line-height:1;}
+.specs .sp span{font-size:6.5pt;color:var(--silver);letter-spacing:.02em;}
+.why{display:flex;flex-direction:column;gap:.085in;margin-top:.18in;}
+.why .w{display:flex;gap:8px;align-items:flex-start;font-size:8pt;color:#4a5256;line-height:1.35;}
+.why .w svg{width:14px;height:14px;color:var(--teal);flex-shrink:0;margin-top:1px;}
+.why .w b{color:var(--ink);font-family:var(--font-display);font-weight:700;}
+.cta-box{margin-top:.2in;background:var(--ink);border-radius:12px;padding:.2in;text-align:center;color:#fff;position:relative;overflow:hidden;}
+.cta-box::before{content:"";position:absolute;inset:0;background:radial-gradient(240px 140px at 90% 0%,rgba(8,167,174,.3),transparent 60%);}
+.cta-box .lab{position:relative;font-family:var(--font-display);font-weight:600;font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);}
+.cta-box .ph{position:relative;font-family:var(--font-display);font-weight:800;font-size:17pt;color:#fff;margin:5px 0 3px;letter-spacing:-.01em;}
+.cta-box .em{position:relative;font-size:8pt;color:rgba(255,255,255,.62);}
+
+/* ---------- Print ---------- */
+@media print{
+  @page{size:11in 8.5in;margin:0;}
+  html,body{background:#fff;}
+  .toolbar,.sheet-label{display:none!important;}
+  .stage{padding:0;gap:0;}
+  .sheet-wrap{gap:0;}
+  .sheet{box-shadow:none;page-break-after:always;break-after:page;}
+  .sheet:last-child{page-break-after:auto;}
+  .panel + .panel{border-left:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="t-brand"><i></i> Silver City Transport — Tri-Fold Brochure</div>
+  <div class="t-actions">
+    <span class="hint">Letter landscape · print double-sided, flip on short edge · fold in thirds</span>
+    <button class="print-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+      Print / Save PDF
+    </button>
+  </div>
+</div>
+
+<div class="stage" id="stage">
+
+  <!-- ============ OUTSIDE ============ -->
+  <div class="sheet-wrap">
+    <div class="sheet-label">Outside · <b>Print side 1</b> — fold-in flap · back cover · front cover</div>
+    <section class="sheet dark" id="sheetA">
+      <!-- FOLD-IN FLAP -->
+      <div class="panel flap">
+        <svg class="lanes" viewBox="0 0 300 800" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 760 C 120 560, 220 520, 360 220" fill="none" stroke="#9B9B9B" stroke-width="2.5" stroke-dasharray="2 22"/>
+        </svg>
+        <div style="position:relative;">
+          <span class="eyebrow lite">Welcome Aboard</span>
+          <h2>Every ride <span class="coral">matters.</span></h2>
+          <p>Silver City Transport is a Bermuda-based company providing reliable, convenient shuttle services for individuals, families, schools, businesses, visitors and groups of all sizes.</p>
+          <p>Built on professionalism, safety and dependable service — with clean, air-conditioned vehicles and a customer-first approach.</p>
+          <div class="serve-title">Who we serve</div>
+          <div class="chips">
+            <span>Visitors</span><span>Families</span><span>Businesses</span><span>Schools</span><span>Event Planners</span><span>Hotels &amp; Hosts</span>
+          </div>
+        </div>
+        <div class="flap-cta">
+          Open up to explore our services
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </div>
+
+      <!-- BACK COVER -->
+      <div class="panel p-dark back">
+        <div>
+          <img class="back-logo" src="assets/slt-logo.jpg" alt="Silver City Transport" />
+          <span class="eyebrow lite">Get In Touch</span>
+          <h2 style="margin-top:.1in;">Let's get you moving.</h2>
+          <p class="lede">Available 24/7 by booking across Bermuda. Call, message or email us and we'll confirm your ride and quote.</p>
+          <div class="contact-list">
+            <div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><div><b>441.799.4124</b><span>Call or WhatsApp · 24/7</span></div></div>
+            <div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span><div><b>silvercitytransport@gmail.com</b><span>Email your trip details</span></div></div>
+            <div class="row"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11.8A8 8 0 0 0 4 10.2C4 17.5 12 22 12 22z"/><circle cx="12" cy="10" r="3"/></svg></span><div><b>Serving all of Bermuda</b><span>Airport · hotels · homes · cruise terminals</span></div></div>
+          </div>
+          <div class="socials">
+            <span class="s"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</span>
+            <span class="s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/></svg>Instagram</span>
+            <span class="s"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2z"/></svg>WhatsApp</span>
+          </div>
+        </div>
+        <div class="back-foot">
+          <div class="tag">Moving Bermuda with Comfort &amp; Care.</div>
+          <div class="cr">© 2026 Silver City Transport · Reliable Rides · Professional Service · Bermuda Hospitality</div>
+        </div>
+      </div>
+
+      <!-- FRONT COVER -->
+      <div class="panel p-dark cover">
+        <svg class="lanes" viewBox="0 0 300 800" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-40 250 C 120 360, 200 380, 360 560" fill="none" stroke="#9B9B9B" stroke-width="2.5" stroke-dasharray="2 24" opacity=".5"/>
+          <path d="M-40 290 C 120 400, 200 420, 360 600" fill="none" stroke="#08A7AE" stroke-width="2" stroke-dasharray="2 20" opacity=".5"/>
+        </svg>
+        <div class="cover-top">
+          <img class="cover-logo" src="assets/slt-logo.jpg" alt="Silver City Transport" />
+          <span class="badge247"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 24/7 SERVICE BY BOOKING</span>
+          <h1 style="margin-top:.16in;">Reliable Shuttle Services Across <span class="teal">Bermuda</span></h1>
+          <p class="sub">Airport runs · island tours · corporate events · school runs · excursions · beach runs &amp; private group transport.</p>
+        </div>
+        <div class="cover-photo">
+          <img src="assets/van-ocean.jpg" alt="Silver City Transport shuttle" />
+          <div class="rate"><b>$130</b><span>PER HOUR</span></div>
+        </div>
+        <div class="cover-foot">
+          <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>441.799.4124</div>
+          <div style="font-family:var(--font-serif);font-weight:600;font-size:8pt;color:var(--coral);">Comfort &amp; Care</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ INSIDE ============ -->
+  <div class="sheet-wrap">
+    <div class="sheet-label">Inside · <b>Print side 2</b> — services · packages &amp; pricing · fleet</div>
+    <section class="sheet" id="sheetB">
+      <!-- SERVICES -->
+      <div class="panel p-light">
+        <div class="accent-bar"></div>
+        <span class="eyebrow">What We Offer</span>
+        <h3 class="panel-title">Our Services</h3>
+        <p class="panel-intro">Designed for comfort, convenience and peace of mind — whatever your journey across the island.</p>
+        <div class="svc">
+          <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9.3l-.9.9a1 1 0 0 0 .2 1.6L8 12l-2 2H4l-1 1 3 2 2 3 1-1v-2l2-2 3.1 4.8a1 1 0 0 0 1.6.2l.9-.9a1 1 0 0 0 .3-.9z"/></svg></span><div class="tx"><b>Airport Transfers</b><span>Reliable pickup &amp; drop-off for arrivals and departures.</span></div></div>
+          <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11.8A8 8 0 0 0 4 10.2C4 17.5 12 22 12 22z"/><circle cx="12" cy="10" r="3"/></svg></span><div class="tx"><b>Island Tours</b><span>Private &amp; group tours — East End, Hamilton &amp; Dockyard.</span></div></div>
+          <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M6 21V7l8-4v18M14 9h4v12"/></svg></span><div class="tx"><b>Corporate Events</b><span>Conferences, staff events &amp; executive group movement.</span></div></div>
+          <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span><div class="tx"><b>Group Outings</b><span>Churches, teams, weddings, birthdays &amp; private events.</span></div></div>
+          <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></span><div class="tx"><b>School Runs</b><span>Safe, scheduled transport for students &amp; youth programs.</span></div></div>
+          <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18h20M7 12a5 5 0 0 1 10 0M12 3v4M12 12v6"/></svg></span><div class="tx"><b>Beach Runs</b><span>Pickup, beach drop-off &amp; return for any group.</span></div></div>
+          <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4zM3 7v10l9 4 9-4V7"/></svg></span><div class="tx"><b>Excursions</b><span>Boat trips, dining, sightseeing &amp; cultural experiences.</span></div></div>
+          <div class="item"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h2l1-5h12l1 5h2M5 12l1.5-5h11L19 12M7 17a2 2 0 1 0 4 0M13 17a2 2 0 1 0 4 0"/></svg></span><div class="tx"><b>Private Shuttle</b><span>Flexible hourly hire &amp; custom routes, your way.</span></div></div>
+        </div>
+      </div>
+
+      <!-- PACKAGES + PRICING -->
+      <div class="panel p-light tint">
+        <div class="accent-bar"></div>
+        <span class="eyebrow">Service Packages</span>
+        <h3 class="panel-title">Packages &amp; Pricing</h3>
+        <p class="panel-intro">Simple, transparent options for travelers, families, businesses and events.</p>
+        <div class="pkgs">
+          <div class="pkg"><div><div class="nm">Silver Airport</div><div class="ds">Pickup, drop-off &amp; luggage help</div></div><span class="tagm">Travelers</span></div>
+          <div class="pkg feat"><div><div class="nm">Silver Island Tour</div><div class="ds">Custom scenic route &amp; photo stops</div></div><span class="tagm">Popular</span></div>
+          <div class="pkg"><div><div class="nm">Silver Corporate</div><div class="ds">Scheduled pickups &amp; billing</div></div><span class="tagm">Business</span></div>
+          <div class="pkg"><div><div class="nm">Silver School</div><div class="ds">Safe scheduled school runs</div></div><span class="tagm">Schools</span></div>
+          <div class="pkg"><div><div class="nm">Silver Event</div><div class="ds">Guest shuttles &amp; multiple stops</div></div><span class="tagm">Events</span></div>
+          <div class="pkg"><div><div class="nm">Beach &amp; Custom</div><div class="ds">Bespoke group transport</div></div><span class="tagm">Flexible</span></div>
+        </div>
+        <div class="pricing">
+          <div class="big"><b>$130</b><span>/ hour</span></div>
+          <div class="terms">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Premium hourly rate — tours &amp; events</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> 2-hour minimum for private bookings</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> 25–50% deposit confirms your booking</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Fixed-rate airport &amp; event packages</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FLEET + WHY + CTA -->
+      <div class="panel p-light">
+        <div class="accent-bar"></div>
+        <span class="eyebrow">Our Fleet</span>
+        <h3 class="panel-title">Travel in Comfort</h3>
+        <div class="fleet-img">
+          <img src="assets/van-bermuda.jpg" alt="Toyota HiAce high-roof shuttle" />
+          <div class="cap">Toyota HiAce · High-Roof Shuttle</div>
+        </div>
+        <div class="specs">
+          <div class="sp"><b>13+</b><span>SEATS</span></div>
+          <div class="sp"><b>A/C</b><span>CLIMATE</span></div>
+          <div class="sp"><b>High</b><span>ROOF</span></div>
+        </div>
+        <div class="why">
+          <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>Reliable &amp; on time</b> — punctual, every trip.</span></div>
+          <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>Professional drivers</b> — friendly &amp; local.</span></div>
+          <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>Clean vehicles</b> — spotless before every ride.</span></div>
+          <div class="w"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span><b>Flexible booking</b> — hourly, routes &amp; packages.</span></div>
+        </div>
+        <div class="cta-box">
+          <div class="lab">Book Your Ride Today</div>
+          <div class="ph">441.799.4124</div>
+          <div class="em">silvercitytransport@gmail.com</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
+
+<script>
+// Scale sheets to fit the viewport width on screen (print uses natural size).
+(function(){
+  function fit(){
+    var sheets = document.querySelectorAll('.sheet');
+    var avail = Math.min(window.innerWidth - 48, 1160);
+    sheets.forEach(function(s){
+      s.style.transform = 'none';
+      var w = s.offsetWidth;
+      var scale = Math.min(1, avail / w);
+      var wrap = s.parentElement;
+      s.style.transformOrigin = 'top center';
+      s.style.transform = 'scale(' + scale + ')';
+      s.style.marginBottom = (s.offsetHeight * scale - s.offsetHeight) + 'px';
+    });
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('load', fit);
+  fit();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Silver City Transport — Reliable Shuttle Services Across Bermuda</title>
+<meta name="description" content="Silver City Transport — Bermuda's trusted private shuttle and group transportation. Airport runs, island tours, corporate events, school runs, excursions and beach runs. Available 24/7 by booking." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script>document.documentElement.className += ' js';</script>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="brand">
+      <img src="assets/slt-logo.png" alt="Silver City Transport logo" />
+    </a>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#fleet">Fleet</a>
+      <a href="Promotions.html">Specials</a>
+      <a href="#book">Booking</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+14417994124" class="nav-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        441.799.4124
+      </a>
+      <a href="#book" class="btn btn-coral">Book a Ride</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ MOBILE MENU ============ -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" aria-label="Close">&times;</button>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#packages">Packages</a>
+  <a href="#fleet">Fleet</a>
+  <a href="Promotions.html">Specials</a>
+  <a href="#book">Booking</a>
+  <a href="#book" class="btn btn-coral">Book a Ride</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/van-ocean.jpg">
+    <source src="assets/hero-van.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-scrim"></div>
+  <svg class="lanes" viewBox="0 0 1440 800" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-100 720 C 400 560, 900 540, 1600 300" fill="none" stroke="#9B9B9B" stroke-width="3" stroke-dasharray="2 26" opacity="0.5"/>
+    <path d="M-100 760 C 420 600, 920 580, 1600 340" fill="none" stroke="#08A7AE" stroke-width="2" stroke-dasharray="2 22" opacity="0.4"/>
+  </svg>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="hero-badge reveal"><span class="dot"></span>24/7 Service Across Bermuda</span>
+      <h1 class="reveal d1">Moving Bermuda with <span class="teal">Comfort</span> &amp; <span class="accent">Care</span>.</h1>
+      <p class="hero-sub reveal d2">From airport runs and island tours to school transportation, corporate events, beach runs and private group outings — Silver City Transport gets you there safely, comfortably and on time.</p>
+      <div class="hero-actions reveal d2">
+        <a href="#book" class="btn btn-teal">
+          Book a Ride
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="Promotions.html" class="btn btn-coral">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          View Specials &amp; Offers
+        </a>
+        <a href="#book" class="btn btn-ghost">Request a Quote</a>
+      </div>
+      <div class="hero-stats reveal d3">
+        <div class="stat"><b>24/7</b><span>Service by booking</span></div>
+        <div class="stat"><b>$130<span class="unit">/hr</span></b><span>Premium hourly rate</span></div>
+        <div class="stat"><b>13<span class="unit">+</span></b><span>Passenger capacity</span></div>
+        <div class="stat stat-pickup">
+          <span class="ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11.8A8 8 0 0 0 4 10.2C4 17.5 12 22 12 22z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+          <span><b>Island-Wide Pickup</b><span>Airport, hotels, homes &amp; cruise terminals</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="strip" aria-hidden="true">
+  <div class="track">
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Airport Transfers</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Island Tours</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Corporate Events</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> School Runs</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Beach Runs</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Excursions</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Group Outings</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Airport Transfers</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Island Tours</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Corporate Events</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> School Runs</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Beach Runs</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Excursions</span><span class="sep">•</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Group Outings</span><span class="sep">•</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-media reveal">
+      <div class="frame">
+        <img src="assets/van-bermuda.jpg" alt="Silver City Transport shuttle at the Bermuda waterfront" />
+      </div>
+      <div class="tag">
+        <b>100%</b>
+        <span>BERMUDA OWNED &amp; OPERATED</span>
+      </div>
+    </div>
+    <div class="about-copy reveal d1">
+      <span class="eyebrow">About Silver City Transport</span>
+      <h2 style="font-size:clamp(30px,3.6vw,46px);margin-top:16px;">Bermuda's trusted partner in private &amp; group transportation.</h2>
+      <p class="lead">Reliable and convenient shuttle services for individuals, families, schools, businesses, visitors and groups of all sizes.</p>
+      <p>Built on professionalism, safety and dependable service, Silver City Transport offers airport runs, island tours, corporate transportation, school runs, beach runs, excursions, group outings and private shuttle services. Whether you need a comfortable ride from the airport, transportation for a special event, or organized travel for a group, we deliver a smooth and stress-free experience.</p>
+      <p>With 24/7 service availability, clean vehicles and a customer-first approach, we help people move around Bermuda with confidence, comfort and care.</p>
+      <p class="promise">At Silver City Transport, every ride matters.</p>
+      <div class="values">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Professional</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Reliable</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Island-Friendly</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Clean &amp; Modern</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Safe</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Transportation made simple.</h2>
+      <p>Designed for comfort, convenience and peace of mind — whatever your journey across the island.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card reveal">
+        <div class="svc-media"><img src="assets/airport.png" alt="A traveler with a Silver City Transport branded suitcase beside the shuttle in Bermuda" /></div>
+        <div class="svc-body">
+          <h3>Airport Transfers</h3>
+          <p>Reliable pickup and drop-off for visitors, residents, business travelers, families and groups.</p>
+          <span class="more">Silver Arrival &amp; Departure <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal d1">
+        <div class="svc-media"><img src="assets/island-tour.png" alt="Guests enjoying a guided Silver City Transport island tour of Bermuda" /></div>
+        <div class="svc-body">
+          <h3>Island Tours</h3>
+          <p>Private and group tours across Bermuda — St. George's, Hamilton, Dockyard and scenic routes.</p>
+          <span class="more">East · Central · West End <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal d2">
+        <div class="svc-media"><img src="assets/wedding.png" alt="A bridal party riding together in a Silver City Transport shuttle" /></div>
+        <div class="svc-body">
+          <h3>Weddings</h3>
+          <p>Elegant, on-time transport for your wedding party and guests — everyone arrives together, relaxed and in style.</p>
+          <span class="more">Celebration Transport Package <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-media"><img src="assets/stock-corporate.jpg" alt="A corporate team meeting — Silver City Transport handles executive and conference transport" /></div>
+        <div class="svc-body">
+          <h3>Corporate Events</h3>
+          <p>Transportation for conferences, staff events, client visits and executive group movement.</p>
+          <span class="more">Executive &amp; conference plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal d1">
+        <div class="svc-media"><img src="assets/stock-group.jpg" alt="A group of friends together by the water on an island outing" /></div>
+        <div class="svc-body">
+          <h3>Group Outings</h3>
+          <p>Ideal for church groups, family gatherings, sports teams, birthdays, reunions and private events.</p>
+          <span class="more">Silver Group Ride <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal d2">
+        <div class="svc-media"><img src="assets/stock-school.jpg" alt="School books, pencils and lettered blocks — safe scheduled school transport" /></div>
+        <div class="svc-body">
+          <h3>School Runs</h3>
+          <p>Safe, scheduled transportation for students, schools, camps and youth programs.</p>
+          <span class="more">Student &amp; camp shuttle plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="svc-media"><img src="assets/stock-beach.jpg" alt="A turquoise Bermuda beach at sunset — Silver City Transport beach runs" /></div>
+        <div class="svc-body">
+          <h3>Beach Runs</h3>
+          <p>Transportation to and from Bermuda's beaches — pickup, drop-off and return for any group.</p>
+          <span class="more">Beach Day Shuttle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal d1">
+        <div class="svc-media"><img src="assets/stock-excursion.jpg" alt="A diver among reef fish — custom excursions and experiences" /></div>
+        <div class="svc-body">
+          <h3>Excursions</h3>
+          <p>Custom transport for boat trips, dining, sightseeing, sports events and cultural experiences.</p>
+          <span class="more">Island Excursion Shuttle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal d2">
+        <div class="svc-media"><img src="assets/van-ocean.jpg" alt="The Silver City Transport shuttle — flexible private hire" /></div>
+        <div class="svc-body">
+          <h3>Private Shuttle</h3>
+          <p>Flexible hourly bookings and custom routes for whatever your day on the island calls for.</p>
+          <span class="more">$130/hr · 2hr minimum <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PACKAGES ============ -->
+<section class="section packages" id="packages">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Service Packages</span>
+      <h2>Choose the package that fits your journey.</h2>
+      <p>Simple, transparent options for travelers, families, businesses and event organizers.</p>
+    </div>
+    <div class="pkg-grid">
+      <article class="pkg reveal">
+        <span class="pkg-tag">For Travelers</span>
+        <h3>Silver Airport</h3>
+        <p class="desc">Stress-free arrivals and departures.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Airport pickup &amp; drop-off</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Hotel or home transfer</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Luggage assistance</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Optional return booking</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Request a Quote</a>
+      </article>
+      <article class="pkg featured reveal d1">
+        <span class="pkg-tag">Most Popular</span>
+        <h3>Silver Island Tour</h3>
+        <p class="desc">A private scenic tour of Bermuda.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Custom route &amp; photo stops</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Historic landmarks &amp; beaches</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Local recommendations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> $130/hr · 2-hour minimum</li>
+        </ul>
+        <a href="#book" class="btn btn-coral">Book This Tour</a>
+      </article>
+      <article class="pkg reveal d2">
+        <span class="pkg-tag">For Business</span>
+        <h3>Silver Corporate</h3>
+        <p class="desc">For businesses and organizations.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Scheduled pickups</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Professional driver</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Corporate billing &amp; invoicing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Event transport planning</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Set Up an Account</a>
+      </article>
+      <article class="pkg reveal">
+        <span class="pkg-tag">For Schools</span>
+        <h3>Silver School</h3>
+        <p class="desc">For schools, camps &amp; youth groups.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Scheduled school runs</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Safe pickup &amp; drop-off</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Parent communication</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Consistent driver where possible</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Enquire Now</a>
+      </article>
+      <article class="pkg reveal d1">
+        <span class="pkg-tag">For Events</span>
+        <h3>Silver Event</h3>
+        <p class="desc">For private &amp; public events.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Guest shuttle service</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Multiple pickup points</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Return transportation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Event coordinator contact</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Plan Your Event</a>
+      </article>
+      <article class="pkg reveal d2">
+        <span class="pkg-tag">Flexible</span>
+        <h3>Silver Beach &amp; Custom</h3>
+        <p class="desc">Beach days &amp; bespoke group transport.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Beach pickup, drop-off &amp; return</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Custom group routing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Hourly hire — $130/hr</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Up to 13+ passengers</li>
+        </ul>
+        <a href="#book" class="btn btn-ghost">Build My Trip</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="section whybg" id="why">
+  <div class="whybg-scrim"></div>
+  <div class="wrap why-grid">
+    <div class="why-copy reveal">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2 style="font-size:clamp(30px,3.6vw,46px);margin-top:16px;">Reliable rides. Professional service. Bermuda hospitality.</h2>
+      <div class="why-list" style="margin-top:30px;">
+        <div class="why-item">
+          <span class="num">1</span>
+          <div><h4>Reliable Service</h4><p>We understand the importance of being on time, every time.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="num">2</span>
+          <div><h4>Professional Drivers</h4><p>Friendly, respectful, service-focused and knowledgeable about Bermuda.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="num">3</span>
+          <div><h4>Comfortable Group Travel</h4><p>Ideal for families, visitors, schools, businesses and private events.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="num">4</span>
+          <div><h4>24/7 Availability</h4><p>Transportation support whenever you need it — by booking.</p></div>
+        </div>
+        <div class="why-item">
+          <span class="num">5</span>
+          <div><h4>Flexible Booking</h4><p>Hourly bookings, custom routes, airport transfers, tours and event packages.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLEET ============ -->
+<section class="section fleet" id="fleet">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Fleet</span>
+      <h2>Modern, spacious &amp; spotless.</h2>
+      <p>Our high-roof Toyota HiAce shuttle is built for comfortable group travel — with room for passengers, luggage and island adventures alike.</p>
+    </div>
+    <div class="fleet-grid">
+      <div class="fleet-main reveal">
+        <img src="assets/van-ocean.jpg" alt="Silver City Transport Toyota HiAce high-roof shuttle" />
+        <div class="info">
+          <h3>Toyota HiAce — High Roof Shuttle</h3>
+          <p>Premium silver finish · Tinted windows · Smooth, quiet ride for every journey.</p>
+        </div>
+      </div>
+      <div class="fleet-specs reveal d1">
+        <div class="spec">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+          <b>13+</b>
+          <span>Passenger seats</span>
+        </div>
+        <div class="spec">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-3V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM9 5h6v2H9z"/></svg></span>
+          <b>Ample</b>
+          <span>Luggage space</span>
+        </div>
+        <div class="spec wide">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 19a2.5 2.5 0 1 1-2.5-2.5H21M12.5 5A2.5 2.5 0 1 1 15 7.5H3M14 15a2.5 2.5 0 1 0 2.5 2.5"/></svg></span>
+          <b style="font-size:18px;margin-bottom:10px;">Comfort Features</b>
+          <div class="feats">
+            <span>Air Conditioning</span>
+            <span>High Roof</span>
+            <span>Tinted Windows</span>
+            <span>Cleaned Before Every Trip</span>
+            <span>Regularly Inspected</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOKING / QUOTE ============ -->
+<section class="section book" id="book">
+  <div class="wrap book-grid">
+    <div class="book-left reveal">
+      <span class="eyebrow">Book a Ride</span>
+      <h2 style="margin-top:16px;">Request your ride or quote</h2>
+      <p>Tell us a few details and we'll confirm availability, send your quote and get you booked. Available 24/7 by request across Bermuda.</p>
+      <div class="book-contacts">
+        <a href="tel:+14417994124">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div><b>441.799.4124</b><span>Call or WhatsApp — 24/7</span></div>
+        </a>
+        <a href="mailto:bookings@silvercitytransport.com">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>
+          <div><b>bookings@silvercitytransport.com</b><span>Email us your trip details</span></div>
+        </a>
+        <a href="#">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div><b>24/7 Service by Booking</b><span>Serving all of Bermuda</span></div>
+        </a>
+      </div>
+    </div>
+
+    <form class="form reveal d1" id="bookingForm" novalidate>
+      <div id="formFields">
+        <h3>Booking &amp; Quote Request</h3>
+        <p class="form-sub">We'll get back to you to confirm date, time and pricing.</p>
+        <div class="form-row">
+          <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" placeholder="Your name" required /></div>
+          <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="441 ..." required /></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@email.com" required /></div>
+          <div class="field"><label for="service">Type of service</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option>Airport Transfer</option>
+              <option>Island Tour</option>
+              <option>Corporate Event</option>
+              <option>Group Outing</option>
+              <option>Wedding Transport</option>
+              <option>School Run</option>
+              <option>Beach Run</option>
+              <option>Excursion</option>
+              <option>Private / Custom Shuttle</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="date">Date of service</label><input id="date" name="date" type="date" required /></div>
+          <div class="field"><label for="time">Pickup time</label><input id="time" name="time" type="time" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="pickup">Pickup location</label><input id="pickup" name="pickup" type="text" placeholder="Airport, hotel, address…" required /></div>
+          <div class="field"><label for="dropoff">Drop-off location</label><input id="dropoff" name="dropoff" type="text" placeholder="Destination" required /></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="passengers">Passengers</label>
+            <select id="passengers" name="passengers" required>
+              <option value="" disabled selected>How many?</option>
+              <option>1–3</option><option>4–6</option><option>7–10</option><option>11–13</option><option>14+</option>
+            </select>
+          </div>
+          <div class="field"><label for="return">Return trip needed?</label>
+            <select id="return" name="return">
+              <option value="" disabled selected>Select</option>
+              <option>No, one way</option><option>Yes, round trip</option>
+            </select>
+          </div>
+        </div>
+        <div class="field full" style="margin-bottom:16px;"><label for="notes">Special stops, luggage or accessibility needs</label><textarea id="notes" name="notes" placeholder="Tell us anything else that helps us plan your trip…"></textarea></div>
+        <button type="submit" class="btn btn-teal">
+          Send Request
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="form-note">A 25–50% deposit confirms your booking · 2-hour minimum for private hires.</p>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg></span>
+        <h3>Request received!</h3>
+        <p>Thank you — we'll be in touch shortly to confirm your date, time and quote. For anything urgent, call <strong>441.799.4124</strong>.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand-col">
+        <a href="#home" class="brand"><img src="assets/slt-logo.png" alt="Silver City Transport" /></a>
+        <p class="f-about">Reliable 13-seat shuttle service across Bermuda — airport runs, island tours, weddings, corporate events, school runs, beach runs, excursions and private group transport. Available by booking.</p>
+        <div class="f-actions">
+          <a href="tel:+14417994124" class="f-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            441.799.4124
+          </a>
+          <a href="mailto:info@silvercitytransport.com" class="f-pill ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            info@silvercitytransport.com
+          </a>
+        </div>
+        <div class="f-facts">
+          <div class="f-fact"><b>$130</b><span>per hour</span></div>
+          <div class="f-fact"><b>13</b><span>passengers</span></div>
+          <div class="f-fact"><b>24/7</b><span>by booking</span></div>
+        </div>
+      </div>
+      <div class="f-links">
+        <div class="f-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#services">Airport Runs</a></li>
+            <li><a href="#services">Island Tours</a></li>
+            <li><a href="#services">Beach Runs</a></li>
+            <li><a href="#services">Corporate Events</a></li>
+            <li><a href="#services">Weddings &amp; Private Events</a></li>
+            <li><a href="#services">Group Outings</a></li>
+            <li><a href="#services">School Runs</a></li>
+            <li><a href="#services">Excursions</a></li>
+            <li><a href="#fleet">13-Seat Shuttle Service</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h5>Book With Us</h5>
+          <ul>
+            <li><a href="#book">Book a Ride</a></li>
+            <li><a href="#book">Request a Quote</a></li>
+            <li><a href="#fleet">View Our Fleet</a></li>
+            <li><a href="#services">Plan an Island Tour</a></li>
+            <li><a href="#book">Arrange Event Transport</a></li>
+            <li><a href="mailto:dispatch@silvercitytransport.com">Contact Dispatch</a></li>
+          </ul>
+        </div>
+        <div class="f-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#fleet">Our Fleet</a></li>
+            <li><a href="#why">Why Choose Us</a></li>
+            <li><a href="#book">Contact</a></li>
+          </ul>
+          <div class="f-meta">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11.8A8 8 0 0 0 4 10.2C4 17.5 12 22 12 22z"/><circle cx="12" cy="10" r="3"/></svg> Serving all of Bermuda</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 24/7 service by booking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-emails">
+      <div class="f-emails-head">
+        <h5>Email Directory</h5>
+        <span>Reach the right desk directly — we'll respond by booking hours.</span>
+      </div>
+      <div class="f-email-grid">
+        <a href="mailto:info@silvercitytransport.com"><b>General Inquiries</b><span>info@silvercitytransport.com</span></a>
+        <a href="mailto:ride@silvercitytransport.com"><b>Ride Requests</b><span>ride@silvercitytransport.com</span></a>
+        <a href="mailto:bookings@silvercitytransport.com"><b>Bookings</b><span>bookings@silvercitytransport.com</span></a>
+        <a href="mailto:tours@silvercitytransport.com"><b>Tours</b><span>tours@silvercitytransport.com</span></a>
+        <a href="mailto:events@silvercitytransport.com"><b>Events &amp; Weddings</b><span>events@silvercitytransport.com</span></a>
+        <a href="mailto:accounts@silvercitytransport.com"><b>Accounts &amp; Payments</b><span>accounts@silvercitytransport.com</span></a>
+        <a href="mailto:partners@silvercitytransport.com"><b>Partnerships</b><span>partners@silvercitytransport.com</span></a>
+        <a href="mailto:dispatch@silvercitytransport.com"><b>Dispatch</b><span>dispatch@silvercitytransport.com</span></a>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>© 2026 Silver City Transport. All rights reserved. · Reliable shuttle service across Bermuda. Available by booking.</span>
+      <div class="f-social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/14417994124" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.3A10 10 0 1 0 12 2zm5.1 14.2c-.2.6-1.2 1.1-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6s.6-1.8.9-2.1c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.7 1.7c.1.2.1.4 0 .5l-.3.5c-.1.2-.3.3-.1.6.1.3.6 1 1.3 1.6.9.8 1.6 1 1.8 1.1.3.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.2.5.3.1.2.1.7-.1 1.1z"/></svg></a>
+      </div>
+    </div>
+    <p class="f-disclaimer">All quotes are estimates and are subject to availability, route confirmation, timing, passenger count, luggage space, vehicle assignment, and final approval by Silver City Transport.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
