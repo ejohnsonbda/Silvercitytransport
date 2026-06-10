@@ -4,7 +4,7 @@
 
   // ── Formspree endpoint ──────────────────────────────────────────────────────
   // Same form ID as script.js — replace YOUR_FORM_ID with your Formspree ID.
-  var FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  var FORM_ENDPOINT = 'https://formspree.io/f/mgobzjda';
   // ───────────────────────────────────────────────────────────────────────────
 
   var nav = document.getElementById('nav');
