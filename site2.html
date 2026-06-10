@@ -233,15 +233,16 @@
       </div>
     </div>
     <form class="rform rv" id="rform" novalidate>
+      <input type="hidden" name="_subject" value="New Reservation Enquiry — Silver City Transport" />
       <div id="rfields">
         <div class="ttl">Reservation Enquiry</div>
-        <div class="fld"><label for="r-name">Full Name</label><input id="r-name" type="text" placeholder="Your name" required /></div>
+        <div class="fld"><label for="r-name">Full Name</label><input id="r-name" name="name" type="text" placeholder="Your name" required /></div>
         <div class="fld two">
-          <div><label for="r-phone">Phone</label><input id="r-phone" type="tel" placeholder="441 …" required /></div>
-          <div><label for="r-email">Email</label><input id="r-email" type="email" placeholder="you@email.com" required /></div>
+          <div><label for="r-phone">Phone</label><input id="r-phone" name="phone" type="tel" placeholder="441 …" required /></div>
+          <div><label for="r-email">Email</label><input id="r-email" name="email" type="email" placeholder="you@email.com" required /></div>
         </div>
         <div class="fld"><label for="r-service">Service</label>
-          <select id="r-service" required>
+          <select id="r-service" name="service" required>
             <option value="" disabled selected>Select a service</option>
             <option>Airport Transfer</option><option>Island Tour</option><option>Corporate Event</option>
             <option>Group Outing</option><option>School Run</option><option>Beach Run</option>
@@ -249,9 +250,9 @@
           </select>
         </div>
         <div class="fld two">
-          <div><label for="r-date">Date</label><input id="r-date" type="date" required /></div>
+          <div><label for="r-date">Date</label><input id="r-date" name="date" type="date" required /></div>
           <div><label for="r-pax">Passengers</label>
-            <select id="r-pax" required>
+            <select id="r-pax" name="passengers" required>
               <option value="" disabled selected>How many?</option>
               <option>1–3</option><option>4–6</option><option>7–10</option><option>11–13</option><option>14+</option>
             </select>
