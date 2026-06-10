@@ -323,7 +323,7 @@ section { position: relative; }
 }
 .field textarea { resize: vertical; min-height: 84px; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px rgba(8,167,174,.12); }
-altcha-widget { margin: 8px 0 4px; display: block; }
+.honeypot { position: absolute; left: -9999px; width: 0; height: 0; opacity: 0; }
 .form .btn { width: 100%; margin-top: 8px; }
 .form-note { font-size: 12.5px; color: var(--silver); text-align: center; margin-top: 14px; }
 

@@ -66,11 +66,7 @@
       ev.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
-      var altchaEl = form.querySelector('altcha-widget');
-      if (altchaEl && !altchaEl.value) {
-        alert('Verification in progress — please try again in a moment.');
-        return;
-      }
+      if (form.querySelector('.honeypot') && form.querySelector('.honeypot').value) return;
 
       var btn = form.querySelector('[type="submit"]');
       var origHTML = btn.innerHTML;
