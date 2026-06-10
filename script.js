@@ -66,6 +66,12 @@
       ev.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
+      var captchaEl = form.querySelector('.h-captcha');
+      if (captchaEl && typeof hcaptcha !== 'undefined' && !hcaptcha.getResponse()) {
+        alert('Please complete the "I\'m not a robot" check before submitting.');
+        return;
+      }
+
       var btn = form.querySelector('[type="submit"]');
       var origHTML = btn.innerHTML;
       btn.disabled = true;
