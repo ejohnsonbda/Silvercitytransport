@@ -325,6 +325,16 @@ section { position: relative; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px rgba(8,167,174,.12); }
 .form .btn { width: 100%; margin-top: 8px; }
 .form-note { font-size: 12.5px; color: var(--silver); text-align: center; margin-top: 14px; }
+
+/* ---------- Booking map ---------- */
+.booking-map-wrap { display: none; border-radius: var(--r-md); overflow: hidden; border: 1.5px solid #e3e8ea; margin-bottom: 16px; }
+.booking-map-wrap.show { display: block; }
+#booking-map { width: 100%; height: 240px; }
+.booking-map-legend { display: flex; gap: 18px; padding: 9px 14px; background: #f8fafb; border-bottom: 1px solid #e3e8ea; }
+.booking-map-legend span { font-family: var(--font-display); font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 7px; color: var(--charcoal); }
+.booking-map-legend span::before { content: ''; display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1.5px currentColor; }
+.bml-pickup::before  { background: #08A7AE; color: #08A7AE; }
+.bml-dropoff::before { background: #FF5F2E; color: #FF5F2E; }
 .form-success { display: none; text-align: center; padding: 30px 10px; }
 .form-success.show { display: block; }
 .form-success .check { width: 64px; height: 64px; border-radius: 50%; background: var(--sky); color: var(--teal-dk); display: grid; place-items: center; margin: 0 auto 18px; }

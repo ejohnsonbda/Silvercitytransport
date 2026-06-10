@@ -257,8 +257,12 @@
           <div class="field"><label for="time">Pickup time</label><input id="time" name="time" type="time" required /></div>
         </div>
         <div class="form-row">
-          <div class="field"><label for="pickup">Pickup location</label><input id="pickup" name="pickup" type="text" placeholder="Airport, hotel, address…" required /></div>
-          <div class="field"><label for="dropoff">Drop-off location</label><input id="dropoff" name="dropoff" type="text" placeholder="Destination" required /></div>
+          <div class="field"><label for="pickup">Pickup location</label><input id="pickup" name="pickup" type="text" placeholder="Airport, hotel, address…" required autocomplete="off" /></div>
+          <div class="field"><label for="dropoff">Drop-off location</label><input id="dropoff" name="dropoff" type="text" placeholder="Destination" required autocomplete="off" /></div>
+        </div>
+        <div id="booking-map-wrap" class="booking-map-wrap">
+          <div class="booking-map-legend"><span class="bml-pickup">Pickup</span><span class="bml-dropoff">Drop-off</span></div>
+          <div id="booking-map"></div>
         </div>
         <div class="form-row">
           <div class="field"><label for="passengers">Passengers</label>
@@ -363,6 +367,58 @@
 </footer>
 
 <script src="script.js"></script>
+<script>
+function initBookingMap() {
+  var mapEl    = document.getElementById('booking-map');
+  var mapWrap  = document.getElementById('booking-map-wrap');
+  var pickupIn = document.getElementById('pickup');
+  var dropIn   = document.getElementById('dropoff');
+  if (!mapEl || !pickupIn || !dropIn) return;
+
+  var bermuda = { lat: 32.3078, lng: -64.7505 };
+  var map = new google.maps.Map(mapEl, {
+    center: bermuda, zoom: 12,
+    mapTypeControl: false, streetViewControl: false, fullscreenControl: false,
+    styles: [{ featureType: 'poi', elementType: 'labels', stylers: [{ visibility: 'off' }] }]
+  });
+
+  function pin(color) {
+    return { path: google.maps.SymbolPath.CIRCLE, scale: 11,
+             fillColor: color, fillOpacity: 1, strokeColor: '#fff', strokeWeight: 2.5 };
+  }
+  var pickupMarker  = new google.maps.Marker({ map: map, visible: false, title: 'Pickup',   icon: pin('#08A7AE') });
+  var dropoffMarker = new google.maps.Marker({ map: map, visible: false, title: 'Drop-off', icon: pin('#FF5F2E') });
+
+  function showMap() { mapWrap.classList.add('show'); }
+  function fitBounds() {
+    if (pickupMarker.getVisible() && dropoffMarker.getVisible()) {
+      var b = new google.maps.LatLngBounds();
+      b.extend(pickupMarker.getPosition()); b.extend(dropoffMarker.getPosition());
+      map.fitBounds(b, 52);
+    }
+  }
+
+  var opts = { componentRestrictions: { country: 'bm' } };
+  var pickupAuto  = new google.maps.places.Autocomplete(pickupIn,  opts);
+  var dropoffAuto = new google.maps.places.Autocomplete(dropIn, opts);
+
+  pickupAuto.addListener('place_changed', function () {
+    var p = pickupAuto.getPlace();
+    if (!p.geometry) return;
+    pickupMarker.setPosition(p.geometry.location); pickupMarker.setVisible(true);
+    showMap(); fitBounds();
+    if (!dropoffMarker.getVisible()) map.panTo(p.geometry.location);
+  });
+  dropoffAuto.addListener('place_changed', function () {
+    var p = dropoffAuto.getPlace();
+    if (!p.geometry) return;
+    dropoffMarker.setPosition(p.geometry.location); dropoffMarker.setVisible(true);
+    showMap(); fitBounds();
+    if (!pickupMarker.getVisible()) map.panTo(p.geometry.location);
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initBookingMap" async defer></script>
 <script>
 // Prefill the booking form from a chosen special
 (function () {
