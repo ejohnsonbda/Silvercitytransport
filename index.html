@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=Cinzel:wght@500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/altcha/dist/altcha.min.js"></script>
 <script>document.documentElement.className += ' js';</script>
 </head>
 <body>
@@ -468,7 +468,7 @@
           </div>
         </div>
         <div class="field full" style="margin-bottom:16px;"><label for="notes">Special stops, luggage or accessibility needs</label><textarea id="notes" name="notes" placeholder="Tell us anything else that helps us plan your trip…"></textarea></div>
-        <div class="h-captcha" data-sitekey="YOUR_FORMSPREE_HCAPTCHA_SITE_KEY" data-theme="light"></div>
+        <altcha-widget name="altcha" auto="onfocus" hidefooter style="--altcha-color-base:transparent;"></altcha-widget>
         <button type="submit" class="btn btn-teal">
           Send Request
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>

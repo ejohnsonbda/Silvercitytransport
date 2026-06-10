@@ -66,9 +66,9 @@
       ev.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
-      var captchaEl = form.querySelector('.h-captcha');
-      if (captchaEl && typeof hcaptcha !== 'undefined' && !hcaptcha.getResponse()) {
-        alert('Please complete the "I\'m not a robot" check before submitting.');
+      var altchaEl = form.querySelector('altcha-widget');
+      if (altchaEl && !altchaEl.value) {
+        alert('Verification in progress — please try again in a moment.');
         return;
       }
 
